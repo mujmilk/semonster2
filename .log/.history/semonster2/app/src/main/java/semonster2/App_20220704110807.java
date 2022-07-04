@@ -13,7 +13,7 @@ public class App {
         "ファンタ(レモン)", "鶴瓶麦茶", "午後の紅茶(ストレート)", "午後の紅茶(レモン)", "午後の紅茶(ミルク)", "午後の紅茶(無糖)", "梅よろし", "カフェラテ", "缶コーヒー",
         "グリーンだから" };
     Random rand = new Random();
-    Beverage[] beverages = new Beverage[20];
+    sta Beverage beverages[];
 
     int beverageNum = rand.nextInt(20);
     for (int i = 0; i < beverageNum; ++i) {
