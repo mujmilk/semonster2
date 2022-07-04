@@ -17,7 +17,7 @@ public class App {
     String name_val[] = { "一味", "七味", "カレー", "ラムネ", "七色", "ゲソ", "水晶", "魚介", "豚骨", "味噌", "ソルト", "キタサン", "ダイワ",
         "ミッキー", "サトノ", "塩辛", "ドロリ濃厚", "センチュリー", "アクマ", "デーモン", "金色", "BB", "デカスギ", "カチコチ", "プヨプヨ", "食塩" };
 
-    return name_val[rand2.nextInt(25)].concat(beverage_name[rand2.nextInt(20)]);
+    return name_val[rand2.nextInt(20)].concat(beverage_name[rand2.nextInt(25)]);
   }
 
   public static void init() {

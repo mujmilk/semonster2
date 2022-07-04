@@ -16,7 +16,7 @@ public class Beverage {
   }
 
   public void print() {
-    System.out.println(name + ": 価格: " + price + "円 在庫: " + stock + "個: " + "ID=" + id);
+    System.out.println(name + ": 価格: " + price + "円 在庫: " + stock + "個" + "ID=" + id);
   }
 
 }
