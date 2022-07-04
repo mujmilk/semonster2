@@ -6,7 +6,7 @@ package semonster2;
 import java.util.Random;
 
 public class App {
-  static Beverage beverages[];
+ static Beverage beverages[];
 
   public static void init() {
     String beverage_name[] = { "cola", "water", "monster", "ドデカミン", "氷結", "キレートレモン", "マッチ", "ジンジャエール", "ソルティーライチ",
