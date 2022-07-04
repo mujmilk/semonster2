@@ -4,6 +4,7 @@
 package semonster2;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class App {
 
@@ -23,7 +24,70 @@ public class App {
   }
 
   public static void main(String[] args) {
-    init();
 
+    Scanner scan = new Scanner(System.in);
+
+    //user生成
+    System.out.print("所持金を入力してください: ");
+    int m = scan.nextInt();
+
+    System.out.print("e-moneyの所持金を入力してください(未所持の場合は0): ");
+    int e = scan.nextInt();
+
+    User user = new User(m, e);
+
+    //自販機生成
+    //自販機クラスのインスタンスを宣言
+
+    //行動選択
+    while (true) {
+
+      int use = 0; // money: 0, e-money:1
+
+      if (user.money > 0 && user.e-money > 0) {
+        System.out.println("現金と電子マネーのどちらを使用しますか？");
+        user.print_money();
+        System.out.println("現金: 0, 電子マネー: 1");
+        use = scan.nextInt();
+      } else (user.money > 0) {
+        System.out.println("現金を使用します");
+      } else (user.e-money > 0) {
+        System.out.println("電子マネーを使用します");
+        use = 1;
+      } else {
+        System.out.println("現金を所持していません");
+        break;
+      }
+
+      System.out.println("購入する商品を選択してください．");
+      //自販機クラスのインスタンス.print();
+      int purchase_num = scan.nextInt();
+
+      String purchased_id;
+      int charge;
+      if (use == 0) { // 現金を使用する場合
+        //String[] return_values = 自販機クラスのインスタンス.buy(purchase_num, user.money).split(":");
+        purchased_id = Integer.parseInt(return_values[0]);
+        charge = Integer.parseInt(return_values[1]);
+      } else { // 電子マネーを使用する場合
+        //String[] return_values = .buy(purchase_num, user.e-money).split(":");
+        purchased_id = Integer.parseInt(return_values[0]);
+        charge = Integer.parseInt(return_values[1]);
+      }
+
+      if (purchased_id == -1) { // 何も買えなかった場合
+        System.out.println("購入に失敗しました。");
+      } else {
+        user.addPurchasedItems(/*自販機クラス*/.getItemName(purchased_id));
+        System.out.println(/* 自販機クラス.getItemName(purchased_id) */ + "を購入しました。");
+        user.print_purchased_items();
+      }
+
+      System.out.println("続けて購入しますか？");
+      System.out.println("1: はい　2: いいえ(終了する)");
+      int n = scan.nextInt();
+      if (n == 1) continue;
+      else break;
+    }
   }
 }
