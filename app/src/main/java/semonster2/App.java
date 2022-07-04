@@ -3,12 +3,20 @@
  */
 package semonster2;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.util.Random;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+public class App {
+  Beverage beverage = [];
+
+  public void init() {
+    Random rand = new Random();
+    int beverageNum = rand.nextInt(20);
+    for (int i = 0; i < beverageNum; ++i) {
+
     }
+  }
+
+  public static void main(String[] args) {
+    init();
+  }
 }

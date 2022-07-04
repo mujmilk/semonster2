@@ -5,5 +5,4 @@
 build
 
 *.class
-.vscode/
 bin/
