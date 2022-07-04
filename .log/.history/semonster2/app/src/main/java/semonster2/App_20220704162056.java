@@ -16,9 +16,9 @@ public class App {
     Beverage[] beverages = new Beverage[20];
 
     int beverageNum = rand.nextInt(20);
-    System.out.println(beverageNum);
+    print(beverageNum);
     for (int i = 0; i < beverageNum; ++i) {
-      beverages[i] = new Beverage((rand.nextInt(20) + 1) * 10, beverage_name[i], rand.nextInt(20));
+      beverages[i] = new Beverage(rand.nextInt(20) * 10, beverage_name[i], rand.nextInt(20));
       beverages[i].print();
     }
   }
