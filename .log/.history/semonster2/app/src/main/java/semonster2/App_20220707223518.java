@@ -10,8 +10,8 @@ public class App {
   public static void init() {
 
     // Random rand = new Random();
-    Vending_machine a = new Vending_machine();
-    a.printAll();
+    Vending_machine a= new Vending_machine();
+
   }
 
   public static void main(String[] args) {

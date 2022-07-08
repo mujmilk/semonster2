@@ -18,8 +18,8 @@ public class Beverage {
   public void print() {
     // System.out.println(name + ": 価格: " + price + "円 在庫: " + stock + "個: " + "ID="
     // + id);
-    System.out.printf("%-2d : %-20s : 価格 %-3d : 在庫 %-3d \n", id, name, price, stock);
-    // System.out.printf(String.format("%-15s\t" + ":\n", name));
+    System.out.printf("%2d : %-20s :価格 %3d : 在庫 %-3d \n", id, name, price, stock);
+    // System.out.printf("%2d : %-15s \n", id, name);
   }
 
 }

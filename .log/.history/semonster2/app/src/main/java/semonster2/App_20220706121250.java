@@ -11,7 +11,7 @@ public class App {
 
     // Random rand = new Random();
     Vending_machine a = new Vending_machine();
-    a.printAll();
+    a.beverage[1].print();
   }
 
   public static void main(String[] args) {

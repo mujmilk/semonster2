@@ -6,6 +6,7 @@ public class Beverage {
   public String name;
   public int stock;
   public int id;
+  public int randi;
 
   Beverage(int p, String n, int s, int i) {
     this.price = p;
@@ -16,10 +17,7 @@ public class Beverage {
   }
 
   public void print() {
-    // System.out.println(name + ": 価格: " + price + "円 在庫: " + stock + "個: " + "ID="
-    // + id);
-    System.out.printf("%-2d : %-20s : 価格 %-3d : 在庫 %-3d \n", id, name, price, stock);
-    // System.out.printf(String.format("%-15s\t" + ":\n", name));
+    System.out.println(name + ": 価格: " + price + "円 在庫: " + stock + "個: " + "ID=" + id);
   }
 
 }

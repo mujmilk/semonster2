@@ -9,9 +9,6 @@ public class App {
 
   public static void init() {
 
-    // Random rand = new Random();
-    Vending_machine a = new Vending_machine();
-    a.printAll();
   }
 
   public static void main(String[] args) {
