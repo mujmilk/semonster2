@@ -44,7 +44,11 @@ public class Vending_machine {
       int drink_num = scanner.nextInt();
       while (drink_num < 0 || vend.beverage.length < drink_num) {
         System.out.println("そんな商品番号はないもう一度選べ");
-        int drink_num = scanner.nextInt();
+        drink_num = scanner.nextInt();
+      }
+      while (vend.beverage[drink_num].stock == 0) {
+        System.out.println("その商品は在庫がありません");
+        drink_num = scanner.nextInt();
       }
       vend.beverage[drink_num].stock--;// 在庫を減らす
       result = "True" + ":" + Arrays.toString(drink_num);
