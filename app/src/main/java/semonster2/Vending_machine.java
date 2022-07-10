@@ -13,9 +13,9 @@ public class Vending_machine {
   Vending_machine(int test) { // test用
     Beverage[] beverages = new Beverage[3];
 
-    beverages[0] = new Beverage(100, "いろはす", 20, 0);
-    beverages[1] = new Beverage(200, "梅よろし", 20, 1);
-    beverages[2] = new Beverage(300, "コーラ", 20, 2);
+    beverages[0] = new Beverage(100, "いろはす", 0, 0);
+    beverages[1] = new Beverage(200, "梅よろし", 1, 1);
+    beverages[2] = new Beverage(300, "コーラ", 2, 2);
     this.beverage = beverages;
   }
 
