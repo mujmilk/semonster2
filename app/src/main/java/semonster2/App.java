@@ -31,27 +31,27 @@ public class App {
     System.out.print("所持金を入力してください: ");
     int m = scan.nextInt();
 
-    System.out.print("e-moneyの所持金を入力してください(未所持の場合は0): ");
+    System.out.print("e_moneyの所持金を入力してください(未所持の場合は0): ");
     int e = scan.nextInt();
 
     User user = new User(m, e);
 
     //自販機生成
-    //自販機クラスのインスタンスを宣言
+    Vending_machine vending_machine = new Vending_machine();
 
     //行動選択
     while (true) {
 
-      int use = 0; // money: 0, e-money:1
+      int use = 0; // money: 0, e_money:1
 
-      if (user.money > 0 && user.e-money > 0) {
+      if (user.money > 0 && user.e_money > 0) {
         System.out.println("現金と電子マネーのどちらを使用しますか？");
         user.print_money();
         System.out.println("現金: 0, 電子マネー: 1");
         use = scan.nextInt();
       } else (user.money > 0) {
         System.out.println("現金を使用します");
-      } else (user.e-money > 0) {
+      } else (user.e_money > 0) {
         System.out.println("電子マネーを使用します");
         use = 1;
       } else {
@@ -63,25 +63,47 @@ public class App {
       //自販機クラスのインスタンス.print();
       int purchase_num = scan.nextInt();
 
-      String purchased_id;
+      String isBuyable;
+      String purchased_item;
       int charge;
+      String isBuyable_2;
+      String purchased_item_2;
       if (use == 0) { // 現金を使用する場合
-        //String[] return_values = 自販機クラスのインスタンス.buy(purchase_num, user.money).split(":");
-        purchased_id = Integer.parseInt(return_values[0]);
-        charge = Integer.parseInt(return_values[1]);
+        String[] return_lists = vending_machine.buy(purchase_num, user.money);
+        String[] buy_one = return_lists[0].split(":");
+        String[] buy_two = return_lists[1].split(":");
+
+        isBuyable = buy_one[0];
+        purchased_item = buy_one[1];
+        charge = Integer.parseInt(buy_one[2]);
+
+        isBuyable_2 = buy_two[0];
+        purchased_item_2 = buy_two[1];
+
       } else { // 電子マネーを使用する場合
-        //String[] return_values = .buy(purchase_num, user.e-money).split(":");
-        purchased_id = Integer.parseInt(return_values[0]);
-        charge = Integer.parseInt(return_values[1]);
+        String[] return_lists = vending_machine.buy(purchase_num, user.e_money);
+        String[] buy_one = return_lists[0].split(":");
+        String[] buy_two = return_lists[1].split(":");
+
+        isBuyable = buy_one[0];
+        purchased_item = buy_one[1];
+        charge = Integer.parseInt(buy_one[2]);
+
+        isBuyable_2 = buy_two[0];
+        purchased_item_2 = buy_two[1];
       }
 
-      if (purchased_id == -1) { // 何も買えなかった場合
-        System.out.println("購入に失敗しました。");
+      if (isBuyable.equals("True")) {
+        System.out.println(purchased_item + "を購入しました。");
+        user.buy(purchased_item, charge);
+        if (isBuyable_2.equals("True")) {
+          System.out.println(purchased_item_2 + "が当たりました。");
+          user.buy(purchased_item_2);
+        }
       } else {
-        user.addPurchasedItems(/*自販機クラス*/.getItemName(purchased_id));
-        System.out.println(/* 自販機クラス.getItemName(purchased_id) */ + "を購入しました。");
-        user.print_purchased_items();
+        System.out.println("購入に失敗しました。");
       }
+      user.print();
 
       System.out.println("続けて購入しますか？");
       System.out.println("1: はい　2: いいえ(終了する)");
@@ -89,5 +111,6 @@ public class App {
       if (n == 1) continue;
       else break;
     }
+    scan.close();
   }
 }
