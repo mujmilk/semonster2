@@ -26,9 +26,9 @@ public class User {
   }
 
   public String toString() {
-    String s = "=== 所持金 ===";
+    String s = "=== 所持金 ===\n";
     s += "現金: " + this.money + "円, 電子マネー: " + this.e_money + "円\n";
-    s += "=== 購入した商品 ===";
+    s += "=== 購入した商品 ===\n";
     for (int i = 0; i < purchased_items.size(); ++i) {
       s += this.purchased_items.get(i) + ", ";
     }
