@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class Vending_machineTest {
   @Test
   public void testbuy() {
-    Vending_machine vend = new Vending_machine();
+    Vending_machine vend = new Vending_machine(3);
     String[] expected = new String[2];
 
     expected[0] = "False:N:300";
@@ -33,7 +33,7 @@ public class Vending_machineTest {
 
   @Test
   public void testroulette() {
-    Vending_machine vend = new Vending_machine();
+    Vending_machine vend = new Vending_machine(3);
 
     String expected = "False:N";
     assertEquals(expected, vend.roulette(0)); // 外れたとき

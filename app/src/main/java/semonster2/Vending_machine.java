@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Vending_machine {
   public Beverage[] beverage;
 
-  Vending_machine() {
+  Vending_machine(int test) {   //test用
     Beverage[] beverages = new Beverage[3];
 
     beverages[0] = new Beverage(100, "いろはす", 0);
