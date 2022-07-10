@@ -11,7 +11,7 @@ public class App {
 
     Scanner scan = new Scanner(System.in);
 
-    //user生成
+    // user生成
     System.out.print("所持金を入力してください: ");
     int m = scan.nextInt();
 
@@ -20,10 +20,10 @@ public class App {
 
     User user = new User(m, e);
 
-    //自販機生成
+    // 自販機生成
     Vending_machine vending_machine = new Vending_machine();
 
-    //行動選択
+    // 行動選択
     while (true) {
 
       int use = 0; // money: 0, e_money:1
@@ -33,9 +33,9 @@ public class App {
         user.print_money();
         System.out.println("現金: 0, 電子マネー: 1");
         use = scan.nextInt();
-      } else (user.money > 0) {
+      } else if (user.money > 0) {
         System.out.println("現金を使用します");
-      } else (user.e_money > 0) {
+      } else if (user.e_money > 0) {
         System.out.println("電子マネーを使用します");
         use = 1;
       } else {
@@ -43,8 +43,10 @@ public class App {
         break;
       }
 
+      vending_machine.printAll();
+
       System.out.println("購入する商品を選択してください．");
-      //自販機クラスのインスタンス.print();
+      // 自販機クラスのインスタンス.print();
       int purchase_num = scan.nextInt();
 
       String isBuyable;
@@ -79,7 +81,7 @@ public class App {
 
       if (isBuyable.equals("True")) {
         System.out.println(purchased_item + "を購入しました。");
-        user.buy(purchased_item, charge);
+        user.buy(purchased_item, charge, use);
         if (isBuyable_2.equals("True")) {
           System.out.println(purchased_item_2 + "が当たりました。");
           user.buy(purchased_item_2);
@@ -92,8 +94,10 @@ public class App {
       System.out.println("続けて購入しますか？");
       System.out.println("1: はい　2: いいえ(終了する)");
       int n = scan.nextInt();
-      if (n == 1) continue;
-      else break;
+      if (n == 1)
+        continue;
+      else
+        break;
     }
     scan.close();
   }

@@ -12,16 +12,20 @@ public class User {
     this.e_money = e;
   }
 
-  public void buy(String str, int charge) {
+  public void buy(String str, int charge, int use) {
     purchased_items.add(str);
-    this.money = charge;
+    if (use == 0) {
+      this.money = charge;
+    } else {
+      this.e_money = charge;
+    }
   }
 
   public void buy(String str) {
     purchased_items.add(str);
   }
 
-  public void print_moeny() {
+  public void print_money() {
     System.out.println("現金: " + this.money + "円, 電子マネー: " + this.e_money + "円");
   }
 

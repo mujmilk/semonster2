@@ -1,21 +1,21 @@
 package semonster2;
 
 import java.util.Random;
-import java.util.Arrays;
+//import java.util.Arrays;
 
 public class Vending_machine {
   public Beverage[] beverage;
-  
+
   Vending_machine() {
     this.beverage = drink_init();
   }
-  
-  Vending_machine(int test) {   //test用
+
+  Vending_machine(int test) { // test用
     Beverage[] beverages = new Beverage[3];
 
-    beverages[0] = new Beverage(100, "いろはす", 0);
-    beverages[1] = new Beverage(200, "梅よろし", 1);
-    beverages[2] = new Beverage(300, "コーラ", 2);
+    beverages[0] = new Beverage(100, "いろはす", 20, 0);
+    beverages[1] = new Beverage(200, "梅よろし", 20, 1);
+    beverages[2] = new Beverage(300, "コーラ", 20, 2);
     this.beverage = beverages;
   }
 
@@ -43,7 +43,6 @@ public class Vending_machine {
   }
 
   public String roulette(int n) {
-    Scanner scanner = new Scanner(System.in);
 
     String result;
     int drink_num = 0;
@@ -67,10 +66,10 @@ public class Vending_machine {
       System.out.println("はずれ～～～～");
       result = "False" + ":" + "N";
     }
-    scanner.close();
 
     return result;
-    
+  }
+
   public static String name_init(int i) {
 
     // Random rand2 = new Random();
@@ -86,7 +85,7 @@ public class Vending_machine {
 
   public Beverage[] drink_init() {
     Random rand = new Random();
-    Beverage[] beverages = new Beverage[21];
+    Beverage[] beverages = new Beverage[20];
 
     // int beverageNum = rand.nextInt(20);
     // System.out.println(beverageNum);
@@ -99,10 +98,10 @@ public class Vending_machine {
   }
 
   public void printAll() {
-    // int cnt = beverage.length;
+    int cnt = beverage.length;
     int i = 0;
 
-    while (beverage[i] != null) {
+    while (i < cnt) {
       beverage[i].print();
       i++;
       // System.out.println(i);

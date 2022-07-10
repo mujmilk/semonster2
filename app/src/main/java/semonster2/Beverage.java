@@ -12,7 +12,6 @@ public class Beverage {
     this.name = n;
     this.stock = s;
     this.id = i;
-
   }
 
   public void print() {
