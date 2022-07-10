@@ -8,10 +8,21 @@ import static org.junit.Assert.*;
 
 public class UserTest {
   @Test
-  public void appHasAGreeting() {
-    User classUnderTest = new User(100, 100);
-    assertEquals(
-        "=== 所持金 ===\n現金: 100円, 電子マネー: 100円\n=== 購入した商品 ===\n",
-        classUnderTest.toString());
+  public void userTest() {
+    User classUnderTest = new User(100, 200);
+    assertEquals(100, classUnderTest.money);
+    assertEquals(200, classUnderTest.e_money);
+
+    classUnderTest.buy("ほげドリンク", 50, 0);
+    assertEquals("ほげドリンク", classUnderTest.purchased_items.get(0));
+    assertEquals(50, classUnderTest.money);
+    assertEquals(200, classUnderTest.e_money);
+
+    classUnderTest.buy("ふがコーラ", 50, 1);
+    assertEquals("ふがコーラ", classUnderTest.purchased_items.get(1));
+    assertEquals(50, classUnderTest.money);
+    assertEquals(50, classUnderTest.e_money);
+
+    assertEquals("=== 所持金 ===\n現金: 50円, 電子マネー: 50円\n=== 購入した商品 ===\nほげドリンク, ふがコーラ\n", classUnderTest.toString());
   }
 }

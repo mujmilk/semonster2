@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class User {
   public int e_money;
   public int money;
-  private ArrayList<String> purchased_items = new ArrayList<>();
+  public ArrayList<String> purchased_items = new ArrayList<>();
 
   User(int m, int e) {
     this.money = m;
