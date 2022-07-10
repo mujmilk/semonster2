@@ -7,11 +7,12 @@ package semonster2;
 
 public class App {
 
+
   public static void init() {
 
-    // Random rand = new Random();
-    Vending_machine a = new Vending_machine();
-    a.printAll();
+    //Random rand = new Random();
+
+
   }
 
   public static void main(String[] args) {

@@ -3,15 +3,18 @@
  */
 package semonster2;
 
-//import java.util.Random;
+import java.util.Random;
 
 public class App {
 
+
   public static void init() {
 
-    // Random rand = new Random();
-    Vending_machine a = new Vending_machine();
-    a.printAll();
+    //Random rand = new Random();
+    Beverage[] beverages = new Beverage[20];
+
+    beverages = beverages.drink_init();
+
   }
 
   public static void main(String[] args) {
