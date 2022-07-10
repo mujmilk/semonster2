@@ -14,30 +14,30 @@ public class Vending_machine {
     this.beverage = beverages;
   }
 
-  public static String[] buy(int n, int money, Vending_machine vend) {
+  public String[] buy(int n, int money) {
     String[] result = new String[2];
     int change;
 
-    if (vend.beverage.length < n || n < 0) {
+    if (this.beverage.length < n || n < 0) {
       change = money;
       System.out.println("そんな商品番号はない");
       result[0] = "False" + ":" + "N" + ":" + String.valueOf(change);
       result[1] = "False" + ":" + "N";
-    } else if (vend.beverage[n].price > money || vend.beverage[n].stock == 0) {
+    } else if (this.beverage[n].price > money || this.beverage[n].stock == 0) {
       // 買えない
       change = money;
       result[0] = "False" + ":" + "N" + ":" + String.valueOf(change);
       result[1] = "False" + ":" + "N";
     } else {
-      vend.beverage[n].stock--;// 在庫を減らす
-      change = money - vend.beverage[n].price;// moneyからnの値段文ひいておつり
-      result[1] = roulette(n, vend);
-      result[0] = "True" + ":" + vend.beverage[n].name + ":" + String.valueOf(change);
+      this.beverage[n].stock--;// 在庫を減らす
+      change = money - this.beverage[n].price;// moneyからnの値段文ひいておつり
+      result[1] = roulette(n);
+      result[0] = "True" + ":" + this.beverage[n].name + ":" + String.valueOf(change);
     }
     return result;
   }
 
-  public static String roulette(int n, Vending_machine vend) {
+  public String roulette(int n) {
     Scanner scanner = new Scanner(System.in);
 
     String result;
@@ -47,15 +47,15 @@ public class Vending_machine {
     if (n % 10 == 1) {
       System.out.println("7777");
       System.out.println("当たり");
-      for (int i = 0; i < vend.beverage.length; i++) {
-        if (max_stock < vend.beverage[i].stock) {
-          max_stock = vend.beverage[i].stock;
+      for (int i = 0; i < this.beverage.length; i++) {
+        if (max_stock < this.beverage[i].stock) {
+          max_stock = this.beverage[i].stock;
           drink_num = i;
         }
       }
 
-      vend.beverage[drink_num].stock--;// 在庫を減らす
-      result = "True" + ":" + vend.beverage[drink_num].name;
+      this.beverage[drink_num].stock--;// 在庫を減らす
+      result = "True" + ":" + this.beverage[drink_num].name;
 
       // drink_numの在庫を減らす処理
     } else {
