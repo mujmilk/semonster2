@@ -21,7 +21,7 @@ public class Vending_machine {
 
   public Beverage[] drink_init() {
     Random rand = new Random();
-    Beverage[] beverages = new Beverage[21];
+    Beverage[] beverages = new Beverage[20];
 
     // int beverageNum = rand.nextInt(20);
     // System.out.println(beverageNum);

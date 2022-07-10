@@ -12,16 +12,16 @@ public class Vending_machine {
     String beverage_name[] = { "cola", "water", "monster", "ドデカミン", "氷結", "キレートレモン", "マッチ", "ジンジャエール", "ソルティーライチ",
         "いろはす",
         "ファンタ(レモン)", "鶴瓶麦茶", "午後の紅茶(ストレート)", "午後の紅茶(レモン)", "午後の紅茶(ミルク)", "午後の紅茶(無糖)", "梅よろし", "カフェラテ", "コーヒー",
-        "グリーンだから", };
+        "グリーンだから", "a" };
     String name_val[] = { "一味", "七味", "カレー", "ラムネ", "七色", "ゲソ", "水晶", "魚介", "豚骨", "味噌", "ソルト", "キタサン", "ダイワ",
-        "ミッキー", "サトノ", "塩辛", "ドロリ濃厚", "センチュリー", "アクマ", "パサパサ", };
+        "ミッキー", "サトノ", "塩辛", "ドロリ濃厚", "センチュリー", "アクマ", "パサパサ", "a" };
 
     return name_val[i].concat(beverage_name[i]);
   }
 
   public Beverage[] drink_init() {
     Random rand = new Random();
-    Beverage[] beverages = new Beverage[21];
+    Beverage[] beverages = new Beverage[20];
 
     // int beverageNum = rand.nextInt(20);
     // System.out.println(beverageNum);
