@@ -22,7 +22,5 @@ public class UserTest {
     assertEquals("ふがコーラ", classUnderTest.purchased_items.get(1));
     assertEquals(50, classUnderTest.money);
     assertEquals(50, classUnderTest.e_money);
-
-    assertEquals("=== 所持金 ===\n現金: 50円, 電子マネー: 50円\n=== 購入した商品 ===\nほげドリンク, ふがコーラ\n", classUnderTest.toString());
   }
 }

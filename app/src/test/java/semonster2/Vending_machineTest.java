@@ -11,7 +11,8 @@ public class Vending_machineTest {
 
     expected[0] = "False:N:300";
     expected[1] = "False:N";
-    assertArrayEquals(expected, vend.buy(0, 300)); // 在庫がない時
+    String[] actual = vend.buy(0, 300);
+    assertArrayEquals(expected, actual); // 在庫がない時
 
     expected[0] = "True:コーラ:0";
     expected[1] = "False:N";
